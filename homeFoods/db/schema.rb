@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209011657) do
+ActiveRecord::Schema.define(version: 20160209011658) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160209011657) do
   create_table "stores", force: :cascade do |t|
     t.string   "filename"
     t.string   "name"
+    t.string   "city"
     t.string   "foodType"
     t.string   "description"
     t.string   "tags"

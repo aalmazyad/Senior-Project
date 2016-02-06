@@ -3,6 +3,7 @@
 one:
   filename: MyString
   name: MyString
+  city: MyString
   foodType: MyString
   description: MyString
   tags: MyString
@@ -11,6 +12,7 @@ one:
 two:
   filename: MyString
   name: MyString
+  city: MyString
   foodType: MyString
   description: MyString
   tags: MyString
