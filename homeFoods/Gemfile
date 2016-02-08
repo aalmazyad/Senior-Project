@@ -1,10 +1,16 @@
 source 'https://rubygems.org'
 
+#rating gem 
 gem 'ratyrate'
+#user auth gem 
 gem 'devise'
+# dev gems 
 gem 'quiet_assets', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
+# comments gem 
+gem 'acts_as_commentable'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record

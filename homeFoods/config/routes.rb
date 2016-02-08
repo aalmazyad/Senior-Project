@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :stores
+  root "home#index"
+  get 'query', to: 'home#show'
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
