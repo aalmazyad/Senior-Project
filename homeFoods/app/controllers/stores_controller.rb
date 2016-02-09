@@ -10,6 +10,7 @@ class StoresController < ApplicationController
            		 @mystore = store
 		      end
 		  end
+	@city = request.location.city 
 
   end
 

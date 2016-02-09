@@ -22,10 +22,7 @@
     <%= f.label :type %><br>
     <%= f.text_field :foodType %>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
+  <%= f.hidden_field :city, value: "@city = request.location.city" %>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
