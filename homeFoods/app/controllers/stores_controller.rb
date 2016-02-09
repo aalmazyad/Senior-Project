@@ -70,8 +70,11 @@ class StoresController < ApplicationController
   # DELETE /stores/1
   # DELETE /stores/1.json
   def destroy
-    @store.destroy
-    redirect_to @store , notice: 'store was successfully deleted.'
+     @store.destroy
+    respond_to do |format|
+      format.html { redirect_to stores_url, notice: 'store was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -82,6 +85,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:filename, :name, :city, :foodType, :description, :tags, :user_id)
+      params.require(:store).permit(:filename, :name, :address, :city, :state, :zipcode, :country, :foodType, :description, :tags, :user_id)
     end
 end
