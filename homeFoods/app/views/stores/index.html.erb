@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stores</h1>
+
+<% if @mystore != nil %>
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Tags</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody> 
+      <tr>
+        <td><%= @mystore.filename %></td>
+        <td><%= @mystore.name %></td>
+        <td><%= @mystore.foodType %></td>
+        <td><%= @mystore.description %></td>
+        <td><%= @mystore.tags %></td>
+   
+        <td><%= link_to 'Show', @mystore %></td>
+        <td><%= link_to 'Edit', edit_store_path(@mystore) %></td>
+        <td><%= link_to 'Destroy', @mystore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+<% end %>
+<%= link_to 'New Store', new_store_path %>
