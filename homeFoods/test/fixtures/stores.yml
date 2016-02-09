@@ -3,17 +3,25 @@
 one:
   filename: MyString
   name: MyString
-  city: MyString
   foodType: MyString
   description: MyString
   tags: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  country: MyString
   user_id: 
 
 two:
   filename: MyString
   name: MyString
-  city: MyString
   foodType: MyString
   description: MyString
   tags: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  country: MyString
   user_id: 
