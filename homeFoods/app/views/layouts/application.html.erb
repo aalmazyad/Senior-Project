@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HomeFoods</title>
 <div id="user_nav">
 <% if user_signed_in? %>
 Signed in as <%= current_user.email %>. Not you?
@@ -11,6 +9,8 @@ Signed in as <%= current_user.email %>. Not you?
 <%= link_to "Sign in", new_user_session_path %>
 <% end %>
 </div>
+<head>
+  <title>HomeFoods</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
