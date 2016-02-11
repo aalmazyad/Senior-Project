@@ -1,23 +1,61 @@
 <!DOCTYPE html>
-<html>
-<div id="user_nav">
-<% if user_signed_in? %>
-Signed in as <%= current_user.email %>. Not you?
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to "Sign up", new_user_registration_path %> or
-<%= link_to "Sign in", new_user_session_path %>
-<% end %>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>HomeFoods</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+     <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<% if user_signed_in? %>
+<body>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">HomeFoods</a>
+    </div>
+    <ul class="nav navbar-nav">
+    <li><%= link_to 'Home', root_path %></li>
+     <li><%= link_to 'Manage My Store', stores_path %></li>
+      <li><a><%= text_field_tag(:query,nil, :size => 35)%></a></li>
+      <li><a> <%=submit_tag("Search".html_safe, :class => "btn btn-primary")%></li></a>
+       <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Log out'.html_safe, destroy_user_session_path, method: :delete %></li>
+
+    </ul>
+
+  </div>
+</nav>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<% end %>
 <body>
 <%= yield %>
-<p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 </body>
 </html>

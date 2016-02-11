@@ -1,59 +1,104 @@
-<%= form_for(@store) do |f| %>
-  <% if @store.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h2>
+<%= form_for @store, :html => { :class => "form-horizontal store" } do |f| %>
 
-      <ul>
-      <% @store.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @store.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @store.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
- <%= f.file_field :uploaded_file %>
+  <div class="form-group">
+    <%= f.label :filename, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :filename, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:filename) %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
   </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :foodType %>
+  <div class="form-group">
+    <%= f.label :foodType, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :foodType, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:foodType) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
   </div>
-  <div class="field">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
+  <div class="form-group">
+    <%= f.label :tags, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tags, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tags) %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:address) %>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+  <div class="form-group">
+    <%= f.label :city, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :city, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:city) %>
   </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
+  <div class="form-group">
+    <%= f.label :state, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :state, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:state) %>
   </div>
-  <div class="field">
-    <%= f.label :zipcode %><br>
-    <%= f.text_field :zipcode %>
+  <div class="form-group">
+    <%= f.label :zipcode, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :zipcode, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:zipcode) %>
   </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
+  <div class="form-group">
+    <%= f.label :country, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :country, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:country) %>
   </div>
-  <div class="actions">
-    <%= f.submit "Create My Store" %>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
   </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                stores_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
 <% end %>
-
-
-
