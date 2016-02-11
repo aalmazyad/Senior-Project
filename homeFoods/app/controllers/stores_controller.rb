@@ -6,7 +6,7 @@ class StoresController < ApplicationController
   def index
     @stores = Store.all
     @stores.each do |store|
-		   	  if store.user = current_user
+		   	  if store.user.id = current_user.id
            		 @mystore = store
 		      end
 		  end

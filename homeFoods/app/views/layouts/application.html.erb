@@ -32,7 +32,7 @@
 </head>
 <% if user_signed_in? %>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand">HomeFoods</a>
@@ -40,8 +40,10 @@
     <ul class="nav navbar-nav">
     <li><%= link_to 'Home', root_path %></li>
      <li><%= link_to 'Manage My Store', stores_path %></li>
-      <li><a><%= text_field_tag(:query,nil, :size => 35)%></a></li>
-      <li><a> <%=submit_tag("Search".html_safe, :class => "btn btn-primary")%></li></a>
+    <li><a> <%= form_tag(query_path, method: "get") do  %>
+      <%= text_field_tag(:query,nil, :size => 35)%>
+      <%=submit_tag('Search', :class => "btn btn-primary")%></li></a>
+      <% end %>
        <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Log out'.html_safe, destroy_user_session_path, method: :delete %></li>
 
     </ul>
