@@ -20,6 +20,16 @@ class StoresController < ApplicationController
   # GET /stores/new
   def new
     @store = Store.new
+    @foodType = Array.new
+    @foodType = ["American"," Aisan","Middle Eastern","Indian","Italian"]
+    @contactMethod = Array.new
+    @contactMethod = ["Telegram","Whatsapp","Kik","Cellular"]
+    @city = request.location.city
+    @state = request.location.state
+    @zipcode = request.location.city
+    @country = request.location.country_code
+
+
   end
 
   # GET /stores/1/edit
@@ -83,6 +93,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:filename, :name, :address, :city, :state, :zipcode, :country, :foodType, :description, :tags, :user_id)
+      params.require(:store).permit(:filename, :name, :address, :city, :state, :zipcode, :country, :foodType, :description, :tags, :contactMethod, :coID, :user_id)
     end
 end

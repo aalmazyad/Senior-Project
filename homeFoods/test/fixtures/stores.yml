@@ -3,25 +3,29 @@
 one:
   filename: MyString
   name: MyString
-  foodType: MyString
-  description: MyString
-  tags: MyString
   address: MyString
   city: MyString
   state: MyString
   zipcode: MyString
   country: MyString
+  foodType: MyString
+  description: MyString
+  tags: MyString
+  contactMethod: MyString
+  coID: MyString
   user_id: 
 
 two:
   filename: MyString
   name: MyString
-  foodType: MyString
-  description: MyString
-  tags: MyString
   address: MyString
   city: MyString
   state: MyString
   zipcode: MyString
   country: MyString
+  foodType: MyString
+  description: MyString
+  tags: MyString
+  contactMethod: MyString
+  coID: MyString
   user_id: 

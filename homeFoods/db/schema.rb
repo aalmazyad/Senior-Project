@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211090504) do
+ActiveRecord::Schema.define(version: 20160212081820) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -29,19 +29,6 @@ ActiveRecord::Schema.define(version: 20160211090504) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "products", force: :cascade do |t|
-    t.string   "filename"
-    t.string   "name"
-    t.string   "description"
-    t.integer  "quantity"
-    t.float    "price"
-    t.integer  "store_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "products", ["store_id"], name: "index_products_on_store_id"
 
   create_table "rates", force: :cascade do |t|
     t.integer  "rater_id"
@@ -71,17 +58,19 @@ ActiveRecord::Schema.define(version: 20160211090504) do
   create_table "stores", force: :cascade do |t|
     t.string   "filename"
     t.string   "name"
-    t.string   "foodType"
-    t.string   "description"
-    t.string   "tags"
     t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
     t.string   "country"
+    t.string   "foodType"
+    t.string   "description"
+    t.string   "tags"
+    t.string   "contactMethod"
+    t.string   "coID"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "stores", ["user_id"], name: "index_stores_on_user_id"
