@@ -44,20 +44,15 @@
 <script src="js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-</head>
-
-
-
 <% if user_signed_in? %>
-<body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand">HomeFoods</a>
     </div>
     <ul class="nav navbar-nav">
-    <li><%= link_to '<span class="glyphicon glyphicon-home"></span>Home'.html_safe, root_path %></li>
-     <li><%= link_to '<span class="glyphicon glyphicon-edit"></span>Manage My Store'.html_safe, stores_path %></li>
+    <li><%= link_to '<span class="glyphicon glyphicon-home"></span> Home'.html_safe, root_path %></li>
+     <li><%= link_to '<span class="glyphicon glyphicon-edit"></span> Manage My Store'.html_safe, stores_path %></li>
     <li><a> <%= form_tag(query_path, method: "get") do  %>
       <%= text_field_tag(:query,nil, :size => 35)%>
       <%=submit_tag('Search', :class => "btn btn-primary")%></li></a>
@@ -71,14 +66,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
+
 <% end %>
-<body>
 <%= yield %>
 <p class="alert"><%= alert %></p>
-</body>
+</head>
 <!-- Footer -->
-
         <footer>
           <hr>
             <div class="row">
