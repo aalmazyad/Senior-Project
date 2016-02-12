@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   resources :stores
   root "home#index"
   get 'query', to: 'home#index'

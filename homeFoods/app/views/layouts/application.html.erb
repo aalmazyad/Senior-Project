@@ -28,18 +28,36 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+        <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 </head>
+
+
+
 <% if user_signed_in? %>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand">HomeFoods</a>
     </div>
     <ul class="nav navbar-nav">
-    <li><%= link_to 'Home', root_path %></li>
-     <li><%= link_to 'Manage My Store', stores_path %></li>
+    <li><%= link_to '<span class="glyphicon glyphicon-home"></span>Home'.html_safe, root_path %></li>
+     <li><%= link_to '<span class="glyphicon glyphicon-edit"></span>Manage My Store'.html_safe, stores_path %></li>
     <li><a> <%= form_tag(query_path, method: "get") do  %>
       <%= text_field_tag(:query,nil, :size => 35)%>
       <%=submit_tag('Search', :class => "btn btn-primary")%></li></a>
@@ -59,4 +77,16 @@
 <%= yield %>
 <p class="alert"><%= alert %></p>
 </body>
+<!-- Footer -->
+
+        <footer>
+          <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; homeFoods 2016</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
 </html>

@@ -1,53 +1,32 @@
 <!DOCTYPE html>
-<head>
-    <!-- Page Content -->
+<html>
+<body>
+<!-- Page Content -->
     <div class="container">
-
         <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Nearby
-                </h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Nearby
+                    </h1>
+                </div>
             </div>
-        </div>
-        <!-- /.row --> 
+
         <% @stores.each do |store| %>
-        <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
                 <a>
                      <%= link_to image_tag(root_url + "/images/" + store.filename, size: "500x250", alt: store.filename), store %>
                 </a>
             </div>
+
             <div class="col-md-5">
                 <h3><%=store.name%></h3>
                 <h4><%=store.foodType%></h4>
                 <p><%=store.description%></p>
             </div>
         </div>
-        <!-- /.row -->
+         <br>
+         <hr>
       <% end %>
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; homeFoods 2016</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
+   </body>
 </html>
