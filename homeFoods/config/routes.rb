@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :products
   resources :stores
+  resources :products
   root "home#index"
   get 'query', to: 'home#index'
   post '/rate' => 'rater#create', :as => 'rate'

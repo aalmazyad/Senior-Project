@@ -3,29 +3,41 @@
 one:
   filename: MyString
   name: MyString
+  contactMethod: MyString
+  contactId: MyString
+  foodType: MyString
+  description: MyString
+  fromDay: MyString
+  toDay: MyString
+  fromHour: MyString
+  fromZone: MyString
+  toHour: MyString
+  toZone: MyString
+  tags: MyString
   address: MyString
   city: MyString
   state: MyString
-  zipcode: MyString
+  zipcode: 1
   country: MyString
-  foodType: MyString
-  description: MyString
-  tags: MyString
-  contactMethod: MyString
-  coID: MyString
   user_id: 
 
 two:
   filename: MyString
   name: MyString
+  contactMethod: MyString
+  contactId: MyString
+  foodType: MyString
+  description: MyString
+  fromDay: MyString
+  toDay: MyString
+  fromHour: MyString
+  fromZone: MyString
+  toHour: MyString
+  toZone: MyString
+  tags: MyString
   address: MyString
   city: MyString
   state: MyString
-  zipcode: MyString
+  zipcode: 1
   country: MyString
-  foodType: MyString
-  description: MyString
-  tags: MyString
-  contactMethod: MyString
-  coID: MyString
   user_id: 

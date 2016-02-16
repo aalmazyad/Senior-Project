@@ -18,7 +18,7 @@ class StoresControllerTest < ActionController::TestCase
 
   test "should create store" do
     assert_difference('Store.count') do
-      post :create, store: { description: @store.description, filename: @store.filename, name: @store.name, tags: @store.tags, type: @store.type, user_id: @store.user_id }
+      post :create, store: { address: @store.address, city: @store.city, contactId: @store.contactId, contactMethod: @store.contactMethod, country: @store.country, description: @store.description, filename: @store.filename, foodType: @store.foodType, fromDay: @store.fromDay, fromHour: @store.fromHour, fromZone: @store.fromZone, name: @store.name, state: @store.state, tags: @store.tags, toDay: @store.toDay, toHour: @store.toHour, toZone: @store.toZone, user_id: @store.user_id, zipcode: @store.zipcode }
     end
 
     assert_redirected_to store_path(assigns(:store))
@@ -35,7 +35,7 @@ class StoresControllerTest < ActionController::TestCase
   end
 
   test "should update store" do
-    patch :update, id: @store, store: { description: @store.description, filename: @store.filename, name: @store.name, tags: @store.tags, type: @store.type, user_id: @store.user_id }
+    patch :update, id: @store, store: { address: @store.address, city: @store.city, contactId: @store.contactId, contactMethod: @store.contactMethod, country: @store.country, description: @store.description, filename: @store.filename, foodType: @store.foodType, fromDay: @store.fromDay, fromHour: @store.fromHour, fromZone: @store.fromZone, name: @store.name, state: @store.state, tags: @store.tags, toDay: @store.toDay, toHour: @store.toHour, toZone: @store.toZone, user_id: @store.user_id, zipcode: @store.zipcode }
     assert_redirected_to store_path(assigns(:store))
   end
 

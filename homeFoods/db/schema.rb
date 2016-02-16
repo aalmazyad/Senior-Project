@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212081820) do
+ActiveRecord::Schema.define(version: 20160216050357) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -58,16 +58,22 @@ ActiveRecord::Schema.define(version: 20160212081820) do
   create_table "stores", force: :cascade do |t|
     t.string   "filename"
     t.string   "name"
+    t.string   "contactMethod"
+    t.string   "contactId"
+    t.string   "foodType"
+    t.string   "description"
+    t.string   "fromDay"
+    t.string   "toDay"
+    t.string   "fromHour"
+    t.string   "fromZone"
+    t.string   "toHour"
+    t.string   "toZone"
+    t.string   "tags"
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.string   "zipcode"
+    t.integer  "zipcode"
     t.string   "country"
-    t.string   "foodType"
-    t.string   "description"
-    t.string   "tags"
-    t.string   "contactMethod"
-    t.string   "coID"
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

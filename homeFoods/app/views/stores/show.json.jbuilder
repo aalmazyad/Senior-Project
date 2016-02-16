@@ -1,1 +1,1 @@
-json.extract! @store, :id, :filename, :name, :type, :description, :tags, :user_id, :created_at, :updated_at
+json.extract! @store, :id, :filename, :name, :contactMethod, :contactId, :foodType, :description, :fromDay, :toDay, :fromHour, :fromZone, :toHour, :toZone, :tags, :address, :city, :state, :zipcode, :country, :user_id, :created_at, :updated_at

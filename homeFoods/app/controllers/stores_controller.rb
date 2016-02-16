@@ -6,7 +6,7 @@ class StoresController < ApplicationController
   def index
     @stores = Store.all
     @stores.each do |store|
-		   	  if store.user.id = current_user.id
+		   	  if store.user.id == current_user.id
            		 @mystore = store
 		      end
 		  end
@@ -21,24 +21,36 @@ class StoresController < ApplicationController
   def new
     @store = Store.new
     @foodType = Array.new
-    @foodType = ["American"," Aisan","Middle Eastern","Indian","Italian"]
+    @days = Array.new
+    @hours = Array.new
+    @zones = Array.new
     @contactMethod = Array.new
+    @foodType = ["American"," Aisan","Middle Eastern","Indian","Italian"]
     @contactMethod = ["Telegram","Whatsapp","Kik","Cellular"]
+    @days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    @hours = [1,2,3,4,5,6,7,8,9,10,11,12]
+    @zones = ["am","pm"]
     @city = request.location.city
     @state = request.location.state
     @zipcode = request.location.city
     @country = request.location.country_code
-
-
   end
 
   # GET /stores/1/edit
   def edit
+  	@foodType = Array.new
+    @hours = Array.new
+    @zones = Array.new
+    @contactMethod = Array.new
+    @days = Array.new
+    @foodType = ["American"," Aisan","Middle Eastern","Indian","Italian"]
+    @contactMethod = ["Telegram","Whatsapp","Kik","Cellular"]
+    @hours = [1,2,3,4,5,6,7,8,9,10,11,12]
+    @zones = ["am","pm"]
+    @days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
   end
 
-  # POST /stores
-  # POST /stores.json
-  def create
+   def create
     @store = Store.new(store_params)
     @store.generate_filename
     @store.user = current_user
@@ -79,10 +91,7 @@ class StoresController < ApplicationController
   # DELETE /stores/1.json
   def destroy
      @store.destroy
-    respond_to do |format|
-      format.html { redirect_to stores_url, notice: 'store was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+     redirect_to stores_url, notice: 'store was successfully destroyed.'
   end
 
   private
@@ -93,6 +102,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:filename, :name, :address, :city, :state, :zipcode, :country, :foodType, :description, :tags, :contactMethod, :coID, :user_id)
+      params.require(:store).permit(:filename, :name, :contactMethod, :contactId, :foodType, :description, :fromDay, :toDay, :fromHour, :fromZone, :toHour, :toZone, :tags, :address, :city, :state, :zipcode, :country, :user_id)
     end
 end
