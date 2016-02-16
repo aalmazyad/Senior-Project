@@ -1,99 +1,73 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<body>
+    <!-- Page Content -->
+    <div class="container">
 
-<p>
-  <strong>Filename:</strong>
-  <%= @store.filename %>
-</p>
+        <div class="row">
 
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
+            <div class="col-md-3">
+                <p class="lead"><%= @store.name %></p>
+                   <p><%= @store.contactMethod%>: <%= @store.contactId%></p>
+                   <p><%= @store.fromDay%> To <%= @store.toDay%></p>
+                    <p>From <%= @store.fromHour%> <%= @store.fromZone%> To <%= @store.toHour%> <%= @store.toZone%></p>
+            </div>
+    <div class="col-md-9">
+                <div class="row carousel-holder">
 
-<p>
-  <strong>Contactmethod:</strong>
-  <%= @store.contactMethod %>
-</p>
+                    <div class="col-md-8">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <%= link_to image_tag(root_url + "/images/" + @store.filename, size: "500x300", alt: @store.filename), @store %>
+                                </div>
+                                <div class="item">
+                                    <%= link_to image_tag(root_url + "/images/" + @store.filename, size: "500x300", alt: @store.filename), @store %>
+                                </div>
+                                <div class="item">
+                                    <%= link_to image_tag(root_url + "/images/" + @store.filename, size: "500x300", alt: @store.filename), @store %>
+                                </div>
+            
+                             </div>
+                        </div>
+                
+                    </div>
+                </div>
 
-<p>
-  <strong>Contactid:</strong>
-  <%= @store.contactId %>
-</p>
+                <div class="row">
 
-<p>
-  <strong>Foodtype:</strong>
-  <%= @store.foodType %>
-</p>
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">$24.99</h4>
+                                <h4><a href="#">First Product</a>
+                                </h4>
+                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @store.description %>
-</p>
+            </div>
 
-<p>
-  <strong>Fromday:</strong>
-  <%= @store.fromDay %>
-</p>
+        </div>
 
-<p>
-  <strong>Today:</strong>
-  <%= @store.toDay %>
-</p>
-
-<p>
-  <strong>Fromhour:</strong>
-  <%= @store.fromHour %>
-</p>
-
-<p>
-  <strong>Fromzone:</strong>
-  <%= @store.fromZone %>
-</p>
-
-<p>
-  <strong>Tohour:</strong>
-  <%= @store.toHour %>
-</p>
-
-<p>
-  <strong>Tozone:</strong>
-  <%= @store.toZone %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @store.tags %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @store.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @store.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @store.state %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @store.zipcode %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @store.country %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @store.user %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+    </div>
+</body>
+</html>

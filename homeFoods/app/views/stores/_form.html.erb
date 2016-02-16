@@ -1,3 +1,5 @@
+
+
 <%= form_for(@store) do |f| %>
   <% if @store.errors.any? %>
     <div id="error_explanation">
@@ -10,21 +12,20 @@
       </ul>
     </div>
   <% end %>
+
+<div class="form-group" align="center">
 <div class="field">
-<strong>Upload Logo</strong>
+<strong>Upload Logo</strong> <br>
  <%= f.file_field :uploaded_file %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <strong>Store Name</strong><br>
+    <%= f.text_field :name, :class => "form-control",:style => "width: 400px;" %>
   </div>
- <div class="dropdow">
-    <strong> Contact Info  </strong><br>
-    <%= f.select :contactMethod, @contactMethod %>
-    </div>
   <div class="field">
-    <%= f.label :contactId %><br>
-    <%= f.text_field :contactId %>
+    <strong> Contact Info  </strong><br>
+    <%= f.select :contactMethod, @contactMethod,:class => "form-control",:style => "width: 400px;" %>
+    <%= f.text_field :contactId,:class => "form-control",:style => "width: 400px;" %>
   </div>
   <div class="field">
     <%= f.label :type %><br>
@@ -32,47 +33,37 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description,:style => "width: 500px;" %>
   </div>
   <div class="field">
-    <%= f.label :fromDay %><br>
+    <strong>Open: </strong>
     <%= f.select :fromDay,@days %>
-  </div>
-  <div class="field">
-    <%= f.label :toDay %><br>
-    <%= f.select :toDay,@days %>
-  </div>
-  <div class="field">
-    <%= f.label :fromHour %><br>
+    <strong>To: </strong>
+    <%= f.select :toDay,@days %><br> <br>
+    <strong>From: </strong>
     <%= f.select :fromHour,@hours %>
-  </div>
-  <div class="field">
-    <%= f.label :fromZone %><br>
     <%= f.select :fromZone,@zones %>
-  </div>
-  <div class="field"> select
-    <%= f.label :toHour %><br>
+    <strong>To: </strong>
     <%= f.select :toHour,@hours %>
-  </div>
-  <div class="field">
-    <%= f.label :toZone %><br>
     <%= f.select :toZone,@zones %>
   </div>
   <div class= "field">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
+    <strong>Tags</strong>
+    <%= f.text_field :tags,:class => "form-control",:style => "width: 400px;" %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.label :Address %>
+    <%= f.text_field :address,:class => "form-control",:style => "width: 400px;" %> <br>
+       <strong>Zip Code </strong>
+    <%= f.text_field :address,:class => "form-control",:style => "width: 400px;" %>
   </div>
 
-  <%= f.hidden_field_tag :city,@city %>
-  <%= f.hidden_field_tag :state,@state %>
-  <%= f.hidden_field_tag :zipcode,@zipcode %>
-  <%= f.hidden_field_tag :country,@country %>
+  <%= f.hidden_field :city,value: @city %>
+  <%= f.hidden_field :state,value: @state %>
+  <%= f.hidden_field :country,value: @country %>
 
   <div class="actions">
-    <%= f.submit "Complete Action"%>
+    <%= f.submit "Complete Action", :class =>"btn btn-info active",:style => "width: 200px;"%>
   </div>
+</div> 
 <% end %>
