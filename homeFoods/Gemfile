@@ -11,9 +11,6 @@ gem 'binding_of_caller', group: :development
 # comments gem 
 gem 'acts_as_commentable'
 gem 'geocoder'
-gem "therubyracer"
-gem "twitter-bootstrap-rails"
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

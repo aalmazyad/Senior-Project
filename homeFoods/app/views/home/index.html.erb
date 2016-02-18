@@ -2,14 +2,13 @@
 <html>
 <body>
 <!-- Page Content -->
-    <div class="container">
+  <div class="container">
         <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Nearby
-                    </h1>
-                </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Nearby</h1>
             </div>
+        </div>
         <% @stores.each do |store| %>
         <div class="row">
             <div class="col-md-7">
@@ -17,13 +16,11 @@
                      <%= link_to image_tag(root_url + "/images/" + store.filename, size: "500x250", alt: store.filename), store %>
                 </a>
             </div>
-
             <div class="col-md-5">
                 <h3><%=store.name%></h3>
                 <h4><%=store.foodType%></h4>
                 <p><%=store.description%></p>
             </div>
-        </div>
          <br>
          <hr>
  <% end %>
