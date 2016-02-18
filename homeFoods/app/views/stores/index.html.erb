@@ -8,7 +8,7 @@
             <div class="col-md-3">
                 <p class="lead"><%= @mystore.name %></p>
                 <div class="list-group">
-                    <a  class="list-group-item">Add product</a>
+                 <%= link_to 'Add Product', new_product_path, :class => "list-group-item"%>
 
                     <%= link_to 'Edit Store Information', edit_store_path(@mystore.id), :class => "list-group-item"%>
                      

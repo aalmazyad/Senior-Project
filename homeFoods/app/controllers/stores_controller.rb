@@ -61,7 +61,7 @@ class StoresController < ApplicationController
     end
 
     if @store.save
-      redirect_to @store, notice: 'store was successfully created.'
+      redirect_to stores_path, notice: 'store was successfully created.'
     else
       render :new
     end
