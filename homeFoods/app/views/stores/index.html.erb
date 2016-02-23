@@ -8,7 +8,7 @@
             <div class="col-md-3">
                 <p class="lead"><%= @mystore.name %></p>
                 <div class="list-group">
-                 <%= link_to 'Add Product', new_product_path, :class => "list-group-item"%>
+                 <%= link_to 'Add Product', new_store_product_path(@mystore), :class => "list-group-item"%>
 
                     <%= link_to 'Edit Store Information', edit_store_path(@mystore.id), :class => "list-group-item"%>
                      
@@ -26,41 +26,40 @@
                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner">
-                                <div class="item active">
-                                    <%= link_to image_tag(root_url + "/images/" + @mystore.filename, size: "500x300", alt: @mystore.filename), @mystore %>
-                                </div>
-                                <div class="item">
-                                    <%= link_to image_tag(root_url + "/images/" + @mystore.filename, size: "500x300", alt: @mystore.filename), @mystore %>
-                                </div>
-                                <div class="item">
-                                    <%= link_to image_tag(root_url + "/images/" + @mystore.filename, size: "500x300", alt: @mystore.filename), @mystore %>
+                                <div class="item active" align="center">
+                                    <%= link_to image_tag(root_url + "/images/" + @mystore.filename, size: "400x300", alt: @mystore.filename), @mystore %>
                                 </div>
                              </div>
                         </div>
                     </div>
                 </div>
-
+             <% if @mystore.products != nil %>
                 <div class="row">
+                <% @mystore.products.each do |product| %>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <%= link_to image_tag(root_url + "/images/" + product.filename, size: "200x150", alt: product.filename), product %>
                             <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="#">First Product</a>
-                                </h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                <h4 class="pull-right">$ <%= product.price %></h4>
+                                <h4><%= product.name %></h4>
+                                <p><%= product.description %></p>
+                                <p>Quantity: <%= product.quantity %></p>
                             </div>
+                        </div>
                     </div>
+                <%end %>
                 </div>
-
-            </div>
-
+            <% end %>
         </div>
     </div>
      <% else %>
-    <%= link_to ' <div class="alert alert-info">
-  <strong>Info!</strong> Our records indicate that you do not have a store, if you wish to create one and sell products click here.
-</div>'.html_safe, new_store_path %> 
+     <div class="form-group" align="center">
+     <br> <br>
+     <div class="alert alert-info">
+  <strong>Info!</strong> Our records indicate that you do not have a store, if you wish to create one and sell products
+    <%= link_to 'click here', new_store_path %> 
+     </div>
+      </div>
     <% end %>
 </div>
 </body>

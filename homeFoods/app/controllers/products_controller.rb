@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @store = Store.find(params[:store_id])
+    @products = @store.products
   end
 
   # GET /products/1
@@ -14,7 +15,8 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    @store = Store.find(params[:store_id])
+    @product = @store.products.new
   end
 
   # GET /products/1/edit
@@ -24,23 +26,18 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @stores = Store.all
-    @stores.each do |i|
-      if i.user == current_user
-          @store = i 
-      end
-    end 
-    @product = Product.new(product_params)
+    @store = Store.find(params[:store_id])
+    @product = @store.products.new(product_params)
     @product.generate_filename
-    @product.store = @store
-      @uploaded_io = params[:product][:uploaded_file]
+    @uploaded_io = params[:product][:uploaded_file]
+   
 
     File.open(Rails.root.join('public', 'images', @product.filename), 'wb') do |file|
         file.write(@uploaded_io.read)
     end
 
     if @product.save
-      redirect_to @product, notice: 'product was successfully created.'
+      redirect_to stores_path, notice: 'product was successfully created.'
     else
       render :new
     end
@@ -70,7 +67,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
      @product.destroy
-     redirect_to products_url, notice: 'product was successfully destroyed.'
+     redirect_to stores_path, notice: 'product was successfully destroyed.'
   end
 
   private

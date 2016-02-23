@@ -1,6 +1,7 @@
 class Store < ActiveRecord::Base
+  has_many :products, dependent: :destroy
   belongs_to :user
-  has_many :products
+  accepts_nested_attributes_for :products
    # http://stackoverflow.com/questions/5966910/generate-unique-random-string-with-letters-and-numbers-in-lower-case
 	def generate_filename
     	@POSSIBLE = (('A'..'Z').to_a + (0..9).to_a)

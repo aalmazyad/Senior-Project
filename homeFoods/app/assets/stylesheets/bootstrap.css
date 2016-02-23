@@ -5028,6 +5028,7 @@ a.thumbnail.active {
   color: #333;
 }
 .alert {
+  width:670px; 
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
