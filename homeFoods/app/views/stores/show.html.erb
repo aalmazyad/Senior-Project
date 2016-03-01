@@ -11,20 +11,6 @@
                     <p>From <%= @store.fromHour%> <%= @store.fromZone%> To <%= @store.toHour%> <%= @store.toZone%></p>
             </div>
     <div class="col-md-9">
-                <div class="row carousel-holder">
-                    <div class="col-md-8">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <%= image_tag(root_url + "/images/" + @store.filename, size: "500x300", alt: @store.filename) %>
-                                </div>
-
-            
-                             </div>
-                        </div>
-                
-                    </div>
-                </div>
                  <% if @store.products != nil %>
                 <div class="row">
                 <% @store.products.each do |product| %>

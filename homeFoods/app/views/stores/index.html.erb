@@ -17,18 +17,6 @@
             </div>
 
     <div class="col-md-9">
-         <div class="row carousel-holder">
-                <div class="col-md-8">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-                            <div class="carousel-inner">
-                                <div class="item active" align="center">
-                                    <%= link_to image_tag(root_url + "/images/" + @mystore.filename, size: "400x300", alt: @mystore.filename), @mystore %>
-                                </div>
-                             </div>
-                        </div>
-                    </div>
-                </div>
              <% if @mystore.products != nil %>
                 <div class="row">
                 <% @mystore.products.each do |product| %>
