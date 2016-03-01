@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'mini_magick'
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
 
@@ -59,6 +61,9 @@ class StoresController < ApplicationController
 
     File.open(Rails.root.join('public', 'images', @store.filename), 'wb') do |file|
         file.write(@uploaded_io.read)
+        image = MiniMagick::Image.open(Rails.root.join('public', 'images', @store.filename))
+        image.resize "640x480"
+        image.write Rails.root.join('public', 'images', @store.filename)
     end
 
     if @store.save
@@ -78,6 +83,9 @@ class StoresController < ApplicationController
    if @uploaded_io != nil
     File.open(Rails.root.join('public', 'images', @store.filename), 'wb') do |file|
         file.write(@uploaded_io.read)
+        image = MiniMagick::Image.open(Rails.root.join('public', 'images', @store.filename))
+        image.resize "640x480"
+        image.write Rails.root.join('public', 'images', @store.filename)
     end
   end
 
