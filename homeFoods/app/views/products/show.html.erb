@@ -10,7 +10,7 @@
                     <img class="img-responsive" src="http://placehold.it/800x300" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right">$<%= @product.price %></h4> 
-                        <h4 class="pull-right">$<%= @product.price %></h4>
+                      
 
                         <h4><%=@product.name%></h4>
                         
@@ -18,14 +18,6 @@
                     </div>
                     <div class="ratings">
                         
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 stars
-                        </p>
                     </div>
                 </div>
 
@@ -52,34 +44,6 @@
 
                     <hr>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">12 days ago</span>
-                            <p>I've alredy ordered another one!</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">15 days ago</span>
-                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
@@ -104,7 +68,7 @@
 
     </div>
     <!-- /.container -->
-    <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 </body>
 
 </html>

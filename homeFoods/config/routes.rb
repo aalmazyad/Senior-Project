@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get 'query', to: 'home#index'
   post '/rate' => 'rater#create', :as => 'rate'
   resources :stores do 
-    resources :products, shallow: true
+  resources :products, shallow: true
   end
+  map.resources :stores, :member => {:rate => :post}
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

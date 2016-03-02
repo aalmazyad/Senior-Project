@@ -9,6 +9,9 @@
                    <p><%= @store.contactMethod%>: <%= @store.contactId%></p>
                    <p><%= @store.fromDay%> To <%= @store.toDay%></p>
                     <p>From <%= @store.fromHour%> <%= @store.fromZone%> To <%= @store.toHour%> <%= @store.toZone%></p>
+                    <% if current_user %>
+                    <p>Rating:</p><%= ratings_for @store %>
+                    <% end %>
             </div>
     <div class="col-md-9">
                  <% if @store.products != nil %>
