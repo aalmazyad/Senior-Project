@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :stores do 
   resources :products, shallow: true
   end
-  map.resources :stores, :member => {:rate => :post}
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

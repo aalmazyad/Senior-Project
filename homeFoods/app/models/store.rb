@@ -2,7 +2,7 @@ class Store < ActiveRecord::Base
   has_many :products, dependent: :destroy
   belongs_to :user
   accepts_nested_attributes_for :products
- ajaxful_rateable :stars => 5, :dimensions => [:overall]   
+  ratyrate_rateable "overall"
 
 
 # http://stackoverflow.com/questions/5966910/generate-unique-random-string-with-letters-and-numbers-in-lower-case

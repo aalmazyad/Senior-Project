@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 #rating gem 
-gem 'ajaxful_rating', '~> 2.2', '>= 2.2.9.1'
+gem 'ratyrate'
 #user auth gem 
 gem 'devise'
 # dev gems 

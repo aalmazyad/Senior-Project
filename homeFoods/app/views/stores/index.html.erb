@@ -29,6 +29,8 @@
                                 <p><%= product.description %></p>
                                 <p>Quantity: <%= product.quantity %></p>
                              <div id = "owner-icons">
+                                <%= link_to '', edit_product_path(product.id), :class => "glyphicon glyphicon-cog"%>
+
                                 <%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' },class: 'glyphicon glyphicon-trash' %>
                              </div>
                               
