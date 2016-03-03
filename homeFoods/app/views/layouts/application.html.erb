@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -24,7 +25,7 @@
   <%= csrf_meta_tags %>
 
   <% if user_signed_in? %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand">HomeFoods</a>
@@ -32,11 +33,11 @@
     <ul class="nav navbar-nav">
     <li><%= link_to '<span class="glyphicon glyphicon-home"></span> Home'.html_safe, root_path %></li>
      <li><%= link_to '<span class="glyphicon glyphicon-edit"></span> Manage My Store'.html_safe, stores_path %></li>
-    <li><a> <%= form_tag(query_path, method: "get") do  %>
+    <li><%= form_tag(query_path, method: "get") do  %>
       <%= text_field_tag(:query,nil, :size => 35)%>
-      <%=submit_tag('Search', :class => "btn btn-primary")%></li></a>
+      <%=submit_tag('Search ', :class => "btn btn-default",:style => "width:70px")%></li>
       <% end %>
-       <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Log out'.html_safe, destroy_user_session_path, method: :delete %></li>
+       <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Logout'.html_safe, destroy_user_session_path, method: :delete %></li>
        <% end %>
     </ul>
   </div>

@@ -9,8 +9,15 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
+  background: url('/assets/wall.png');
+ 
+}
+#inner {
+  padding: 50px;
+  display: inline-block;
 }
 
 img.raty-cancel {
@@ -23,6 +30,8 @@ img.raty-cancel {
 #owner-icons a:hover {
   background: transparent; 
 }
+
+
 
 article,
 aside,
@@ -5838,6 +5847,7 @@ button.list-group-item-danger.active:focus {
   padding-bottom: 75%;
 }
 .well {
+  text-align: center;
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
