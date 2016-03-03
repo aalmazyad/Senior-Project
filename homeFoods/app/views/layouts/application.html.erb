@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +32,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">HomeFoods</a>
+      <a class="navbar-brand">HF</a>
     </div>
     <ul class="nav navbar-nav">
     <li><%= link_to '<span class="glyphicon glyphicon-home"></span> Home'.html_safe, root_path %></li>
@@ -36,19 +40,15 @@
     <li><%= form_tag(query_path, method: "get") do  %>
       <%= text_field_tag(:query,nil, :size => 35)%>
       <%=submit_tag('Search ', :class => "btn btn-default",:style => "width:70px")%></li>
-      <% end %>
-       <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Logout'.html_safe, destroy_user_session_path, method: :delete %></li>
+      <% end %> 
+      <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Logout'.html_safe, destroy_user_session_path, method: :delete %></li>
        <% end %>
+
     </ul>
   </div>
 </nav>
 </head>
 <body>
 <%= yield %>
-<!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
