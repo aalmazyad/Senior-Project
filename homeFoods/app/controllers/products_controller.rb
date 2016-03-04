@@ -36,9 +36,6 @@ class ProductsController < ApplicationController
     
     File.open(Rails.root.join('public', 'images', @product.filename), 'wb') do |file|
         file.write(@uploaded_io.read)
-        image = MiniMagick::Image.open(Rails.root.join('public', 'images', @product.filename))
-        image.resize "640x480"
-        image.write Rails.root.join('public', 'images', @product.filename)
     end
     
     if @product.save      
@@ -59,9 +56,6 @@ class ProductsController < ApplicationController
    if @uploaded_io != nil
     File.open(Rails.root.join('public', 'images', @product.filename), 'wb') do |file|
         file.write(@producted_io.read)
-        image = MiniMagick::Image.new(Rails.root.join('public', 'images', @product.filename))
-        image.format "jpg"
-        image.resize "640x480"
     end
   end
 

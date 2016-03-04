@@ -22,6 +22,22 @@ body {
     padding-bottom:0;
 }
 
+#inner-img img {
+    max-width: 800px !important;
+    max-height: 300px !important;
+}
+
+#star-img img {
+    max-width: 15px !important;
+    max-height: 15px !important;
+}
+#product-img img {
+    max-width: 15px !important;
+    max-height: 15px !important;
+}
+
+
+
 img.raty-cancel {
   display: none;
 }
@@ -1158,7 +1174,6 @@ img {
 .img-thumbnail {
   display: inline-block;
   max-width: 100%;
-  height: auto;
   padding: 4px;
   line-height: 1.42857143;
   background-color: #fff;
@@ -5046,6 +5061,11 @@ a.badge:focus {
 .thumbnail a > img {
   margin-right: auto;
   margin-left: auto;
+    max-width: 920px; //only set this if using Twitter Bootstrap
+    position: absolute;
+    left:50%;
+    margin-left: -460px; //half of the image size
+  }
 }
 a.thumbnail:hover,
 a.thumbnail:focus,

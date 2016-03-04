@@ -22,7 +22,9 @@
                 <% @mystore.products.each do |product| %>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
+                        <div class="product-img">
                             <%= link_to image_tag(root_url + "/images/" + product.filename, size: "200x150", alt: product.filename), product %>
+                            </div>
                             <div class="caption">
                                 <h4 class="pull-right">$ <%= product.price %></h4>
                                 <h4><%= product.name %></h4>

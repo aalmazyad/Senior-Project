@@ -23,9 +23,12 @@
                             <div class="caption">
                                 <h4 class="pull-right">$ <%= product.price %></h4>
                                 <h4><%= product.name %></h4>
-                                <p><%= product.description %></p>
                                 <p>Quantity: <%= product.quantity %></p>
+                                   <div id="star-img">
+                                   <% if current_user != product.store.user %>
                                 <%= rating_for product, "overall", :enable_half => true,:half_show => true,:cancel => false %>
+                                <% end %>
+                                </div>
 
                             </div>
                         </div>
