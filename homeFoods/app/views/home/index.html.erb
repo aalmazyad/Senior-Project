@@ -9,11 +9,10 @@
                 <h1 class="page-header">Nearby</h1>
             </div>
         </div>
-
     <% @stores.each do |store| %>
         <div class="row">
             <div class="well">
-             <%= link_to image_tag(root_url + "/images/" + store.filename, size: "100x100", alt: store.filename), store %>
+             <%= link_to image_tag(root_url + "/images/" + store.filename, size: "130x130", alt: store.filename), store %>
               <div id="inner">
                 <h3><%=store.name%></h3>
                 <h4><%=store.foodType%></h4>

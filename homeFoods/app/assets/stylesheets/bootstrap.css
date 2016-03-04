@@ -16,8 +16,10 @@ body {
  
 }
 #inner {
-  padding: 50px;
-  display: inline-block;
+    padding: 50px;
+    display: inline-block;
+    padding-top:0;
+    padding-bottom:0;
 }
 
 img.raty-cancel {
@@ -5054,6 +5056,7 @@ a.thumbnail.active {
   padding: 9px;
   color: #333;
 }
+
 .alert {
   width:670px; 
   padding: 15px;
@@ -5857,6 +5860,10 @@ button.list-group-item-danger.active:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
+.well img{
+      vertical-align: top;
+      text-decoration: none;
+   }
 
 }
 .well blockquote {

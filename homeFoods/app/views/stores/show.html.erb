@@ -18,7 +18,6 @@
                 <div class="row">
                 <% @store.products.each do |product| %>
                     <div class="col-sm-4 col-lg-4 col-md-4">
-                    <%= rating_for product, "overall", :enable_half => true,:half_show => true,:cancel => false %>
                         <div class="thumbnail">
                             <%= link_to image_tag(root_url + "/images/" + product.filename, size: "200x150", alt: product.filename), product %>
                             <div class="caption">
@@ -26,6 +25,8 @@
                                 <h4><%= product.name %></h4>
                                 <p><%= product.description %></p>
                                 <p>Quantity: <%= product.quantity %></p>
+                                <%= rating_for product, "overall", :enable_half => true,:half_show => true,:cancel => false %>
+
                             </div>
                         </div>
 
