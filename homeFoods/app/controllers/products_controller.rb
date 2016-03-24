@@ -37,15 +37,11 @@ class ProductsController < ApplicationController
     File.open(Rails.root.join('public', 'images', @product.filename), 'wb') do |file|
         file.write(@uploaded_io.read)
     end
-    
     if @product.save      
-
       redirect_to stores_path, notice: 'product was successfully created.'
     else
       render :new
     end
-
-   
   end
 
   # PATCH/PUT /products/1
@@ -72,6 +68,16 @@ class ProductsController < ApplicationController
      @product.destroy
      redirect_to stores_path, notice: 'product was successfully destroyed.'
   end
+
+  def add_new_comment
+   product = Product.find(params[:id])
+   comment = product.comments.create
+   comment.user_id = current_user.id
+   comment.comment = params[:comment]
+   comment.save
+   redirect_to :action => :show, :id => product
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
