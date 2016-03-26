@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments, :only => [:create, :destroy]
   root "home#index"
   get 'query', to: 'home#index'
   post '/rate' => 'rater#create', :as => 'rate'

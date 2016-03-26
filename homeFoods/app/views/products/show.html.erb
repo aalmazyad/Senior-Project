@@ -17,7 +17,7 @@
                     <div class="ratings">
                     <% if current_user != @product.store.user %>
                     <div id="star-img">
-                  <%= rating_for @product, "overall", :enable_half => true,:half_show => true,:disable_after_rate => false %>
+                  <%= rating_for @product, "overall", :enable_half => false,:half_show => true,:disable_after_rate => false %>
                   <br>
                    </div>
                   <% end %>
@@ -26,30 +26,26 @@
                 </div>
 
                 <div class="well">
-                 <% @product.comments.each do |comment| %>
+                 <% @product.root_comments.each do |comment| %>
                     <hr>
                     <div class="row">
+                      <% user = @users.find_by(id: comment.user_id) %>
                         <div class="col-md-12">
-                            <span class="pull-right"><%= comment.created_at.strftime("%b %d, %Y")%></span>
+                            <span class="pull-left"><%= rating_for_user @product,user,"overall"%></span>
+                            <span class="pull-right"><%= time_ago_in_words(comment.created_at)%> ago</span>
                             <br>
-                            <p><%= comment.comment %></p>
-                               <div id = "owner-icons">
-                            <% if comment.user_id == current_user.id %>
-                            <%= link_to '', edit_comment_path(comment.id), :class => "glyphicon glyphicon-cog"%>
-
-                                <%= link_to '', comment, method: :delete, data: { confirm: 'Are you sure?' },class: 'glyphicon glyphicon-trash' %>
-                                <% end %>
-                                </div>
+                            <p>&nbsp;&nbsp;<%= comment.body %></p></span>
                         </div>
                     </div>
                   <%end%>
                     <hr>
                 </div>
-                <% if @product.comments.find_by(user_id: current_user.id) == nil && @product.user_id != current_user.id %>
+                <% if @product.root_comments.find_by(user_id: current_user.id) == nil && @product.store.user_id != current_user.id %>
                     <div class="form-group" align="center">
-                           <%= form_tag "/products/add_new_comment" do %>
+                           <%= form_tag ("/products/add_new_comment") do %>
                            <div class="field">
                                 <%= hidden_field_tag "id", @product.id %>
+                                <%= text_area_tag :title %>
                                 <%= text_area_tag :comment %>
                             </div>
                                 <%= submit_tag "Add Comment",:class =>"btn btn-default",:style => "width: 150px;" %>

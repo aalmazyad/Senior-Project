@@ -8,7 +8,7 @@ gem 'quiet_assets', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 # comments gem 
-gem 'acts_as_commentable'
+gem 'acts_as_commentable_with_threading'
 # location detection
 gem 'geocoder'
 #image rezie

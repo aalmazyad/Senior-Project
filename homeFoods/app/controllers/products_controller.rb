@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+  @users = User.all 
   end
 
   # GET /products/new
@@ -70,12 +71,15 @@ class ProductsController < ApplicationController
   end
 
   def add_new_comment
-   product = Product.find(params[:id])
-   comment = product.comments.create
-   comment.user_id = current_user.id
-   comment.comment = params[:comment]
-   comment.save
-   redirect_to :action => :show, :id => product
+      comment = params[:comment]
+      @obj = Product.find(params[:id])
+      # Not implemented: check to see whether the user has permission to create a comment on this object
+      @comment = Comment.build_from(@obj, current_user.id,comment)
+      if @comment.save
+        render :partial => "comments/comment", :locals => { :comment => @comment }, :layout => false, :status => :created
+      else
+        render :js => "alert('error saving comment');"
+      end
   end
 
 
