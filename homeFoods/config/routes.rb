@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "home#index"
   get 'query', to: 'home#index'
   post '/rate' => 'rater#create', :as => 'rate'
-  match "/products/add_new_comment" => "products#add_new_comment", :as => "add_new_comment_to_produts", :via => [:post]
   resources :stores do 
   resources :products, shallow: true
   end

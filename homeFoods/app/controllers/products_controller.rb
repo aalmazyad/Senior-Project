@@ -13,7 +13,10 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-  @users = User.all 
+  @users = User.all
+  @product = Product.find(params[:id])
+  @comments = @product.comment_threads.order('created_at desc')
+  @new_comment = Comment.build_from(@product, current_user.id, "") 
   end
 
   # GET /products/new

@@ -3,6 +3,8 @@ class Store < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :products
   ratyrate_rateable "overall"
+  validates :name,:description,:contactId,:address,:zipcode, presence: true
+
 
 
 # http://stackoverflow.com/questions/5966910/generate-unique-random-string-with-letters-and-numbers-in-lower-case

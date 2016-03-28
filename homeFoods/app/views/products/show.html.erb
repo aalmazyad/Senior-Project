@@ -1,5 +1,4 @@
 <body>
-
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -8,54 +7,27 @@
                     <div id="inner-img">
                      <%= image_tag(root_url + "/images/" + @product.filename, size: "1000x1000", alt: @product.filename) %>
                      </div>
-                    <div class="caption-full">
-                        <h4 class="pull-right">$<%= @product.price %></h4> 
-                        <h4><%=@product.name%></h4>
-                        <p>Description:<%= @product.description %></p>
-                        <p>Quntity:<%= @product.quantity %></p>
-                    </div>
-                    <div class="ratings">
-                    <% if current_user != @product.store.user %>
-                    <div id="star-img">
-                  <%= rating_for @product, "overall", :enable_half => false,:half_show => true,:disable_after_rate => false %>
-                  <br>
-                   </div>
-                  <% end %>
-                        
-                    </div>
-                </div>
-
-                <div class="well">
-                 <% @product.root_comments.each do |comment| %>
-                    <hr>
-                    <div class="row">
-                      <% user = @users.find_by(id: comment.user_id) %>
-                        <div class="col-md-12">
-                            <span class="pull-left"><%= rating_for_user @product,user,"overall"%></span>
-                            <span class="pull-right"><%= time_ago_in_words(comment.created_at)%> ago</span>
-                            <br>
-                            <p>&nbsp;&nbsp;<%= comment.body %></p></span>
+                        <div class="caption-full">
+                            <h4 class="pull-right">$<%= @product.price %></h4> 
+                            <h4><%=@product.name%></h4>
+                            <p>Description:<%= @product.description %></p>
+                            <p>Quntity:<%= @product.quantity %></p>
                         </div>
-                    </div>
-                  <%end%>
-                    <hr>
-                </div>
-                <% if @product.root_comments.find_by(user_id: current_user.id) == nil && @product.store.user_id != current_user.id %>
-                    <div class="form-group" align="center">
-                           <%= form_tag ("/products/add_new_comment") do %>
-                           <div class="field">
-                                <%= hidden_field_tag "id", @product.id %>
-                                <%= text_area_tag :title %>
-                                <%= text_area_tag :comment %>
-                            </div>
-                                <%= submit_tag "Add Comment",:class =>"btn btn-default",:style => "width: 150px;" %>
+                            <div class="ratings">
+                               <% if current_user != @product.store.user %>
+                                <div id="star-img">
+                                <%= rating_for @product, "overall", :enable_half => false,:half_show => true,:disable_after_rate => false %>
+                                 <br>
+                               </div>
                               <% end %>
-                    </div>
-                <% end %>
-
-
+                           </div>
+                </div>
+            		<% if @product.store.user_id != current_user.id %>
+                        <%= render :partial => 'comments/form', :locals => { :comment => @new_comment } %>
+                    <% end %>
+		                <%= render :partial => 'comments/comment', :collection => @comments, :as => :comment %>
+                    
             </div>
-
         </div>
     </div>
 
