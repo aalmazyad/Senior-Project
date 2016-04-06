@@ -51,11 +51,14 @@
      <% else %>
      <div class="form-group" align="center">
      <br> <br>
+        
      <div class="alert alert-info">
-  <strong>Info!</strong> Our records indicate that you do not have a store, if you wish to create one and sell products
-    <%= link_to 'click here', new_store_path %> 
+  Our records indicate that you do not have a store, if you wish to create one and sell products
+  <div id = "owner-icons">
+    <%= link_to 'click here', new_store_path %></strong> 
      </div>
       </div>
+       </div>
     <% end %>
 </div>
 </body>

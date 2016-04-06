@@ -8,9 +8,8 @@
 	        .attr('disabled', 'disabled');
 	    .on "ajax:success", (evt, data, status, xhr) ->
 	      $(this).find('textarea')
-	        .fadeToggle(200)
-	        $(this).find('input')
-	         .fadeToggle(200)
+	        .removeClass('uneditable-input')
+	        .removeAttr('disabled', 'disabled')
 	        .val('');
 	      $(xhr.responseText).hide().insertAfter($(this)).show('slow')
   # Delete a comment
