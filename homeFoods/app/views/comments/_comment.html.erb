@@ -1,6 +1,9 @@
 <div class="well">
 <div class="row">
   <div class="col-md-12">
+  <% users = User.all %>
+  <% user = users.find(comment.user_id) %>
+  <span class="pull-left"><strong><%= user.username %></strong></span>
     <span class="pull-right"><%= time_ago_in_words(comment.created_at)%> ago</span>
     <br>
      <p>&nbsp;&nbsp;<%= comment.body %></p></span>
