@@ -42,11 +42,11 @@
       <%=submit_tag('Search ', :class => "btn btn-default",:style => "width:70px")%></li>
       <% end %>
       <% i = 0 %>
-      <% while i < 9 %>
+      <% while i < 8 %>
      <li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
       <% i = i + 1 %>
       <% end %>
-      
+      <li><%= link_to '<span class="glyphicon glyphicon-user"></span> My Profile'.html_safe,edit_user_registration_path %></li>
       <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Logout'.html_safe, destroy_user_session_path, method: :delete %></li>
        <% end %>
 
