@@ -33,10 +33,6 @@ class StoresController < ApplicationController
     @days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     @hours = [1,2,3,4,5,6,7,8,9,10,11,12]
     @zones = ["am","pm"]
-    @city = request.location.city
-    @state = request.location.state
-    @zipcode = request.location.city
-    @country = request.location.country_code
   end
 
   # GET /stores/1/edit

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<% unless @lat_lng %>
+<script>
+  getGeoLocation();
+</script>
+<% end %>
 <body>
 <!-- Page Content -->
   <div class="container">
