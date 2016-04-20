@@ -44,10 +44,12 @@
     <strong>To: </strong>
     <%= f.select :toDay,@days %><br> <br>
     <strong>From: </strong>
-    <%= f.select :fromHour,@hours,{}%>
+    <%= f.select :fromHour,@hours%>
+    <%= f.select :fromMinute,@minutes %>
     <%= f.select :fromZone,@zones %>
     <strong>To: </strong>
     <%= f.select :toHour,@hours %>
+    <%= f.select :toMinute,@minutes %>
     <%= f.select :toZone,@zones %>
   </div>
   <div class= "field">

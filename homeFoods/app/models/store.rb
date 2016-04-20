@@ -3,7 +3,7 @@ class Store < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :products
   ratyrate_rateable "overall"
-  validates :name,:description,:contactId,:address,:zipcode, presence: true
+  validates :name,:description,:contactId,:address,:zipcode,:tags,:city,:state,:country,presence: true
 
 
 

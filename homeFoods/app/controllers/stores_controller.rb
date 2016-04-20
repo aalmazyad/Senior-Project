@@ -7,8 +7,9 @@ class StoresController < ApplicationController
   # GET /stores.json
   def index
     @stores = Store.all
+
     @stores.each do |store|
-		   	  if store.user.id == current_user.id
+		   	  if store.user_id == current_user.id
            		 @mystore = store
 		      end
 		  end
@@ -31,7 +32,8 @@ class StoresController < ApplicationController
     @foodType = ["American"," Aisan","Middle Eastern","Indian","Italian"]
     @contactMethod = ["Telegram","Whatsapp","Kik","Cellular"]
     @days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-    @hours = [1,2,3,4,5,6,7,8,9,10,11,12]
+    @hours = 1..12
+    @minutes = 0..59
     @zones = ["am","pm"]
   end
 
@@ -39,12 +41,14 @@ class StoresController < ApplicationController
   def edit
   	@foodType = Array.new
     @hours = Array.new
+    @minutes = Array.new
     @zones = Array.new
     @contactMethod = Array.new
     @days = Array.new
     @foodType = ["American"," Aisan","Middle Eastern","Indian","Italian"]
     @contactMethod = ["Telegram","Whatsapp","Kik","Cellular"]
-    @hours = [1,2,3,4,5,6,7,8,9,10,11,12]
+    @hours = 1..12
+    @minutes = 0..59
     @zones = ["am","pm"]
     @days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
   end
@@ -101,6 +105,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:filename, :name, :contactMethod, :contactId, :foodType, :description, :fromDay, :toDay, :fromHour, :fromZone, :toHour, :toZone, :tags, :address, :city, :state, :zipcode, :country,:user_id,products_attributes: [:filename,:name,:description,:quantity,:price])
+      params.require(:store).permit(:filename, :name, :contactMethod, :contactId, :foodType, :description, :fromDay, :toDay, :fromHour, :fromMinute, :toMinute, :fromZone, :toHour, :toZone, :tags, :address, :city, :state, :zipcode, :country,:user_id,products_attributes: [:filename,:name,:description,:quantity,:price])
     end
 end
