@@ -31,6 +31,10 @@
    <strong>Zip Code</strong><br />
     <%= f.text_field :zip, autofocus: true %>
   </div>
+<div class="field">
+    <%= f.label :timezone %>
+    <%= f.time_zone_select :timezone %>
+</div> 
 
   <div class="actions">
     <%= f.submit "Sign up" %>
