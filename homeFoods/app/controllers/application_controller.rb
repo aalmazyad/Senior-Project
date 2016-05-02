@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :username, :zip, :timezone) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :username, :zip, :timezone, :city) }
   end
 def set_timezone
     tz = current_user ? current_user.timezone : nil

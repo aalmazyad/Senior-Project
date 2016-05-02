@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
 
   def index
-  	stores = Store.all
+  	s = Store.all
   	tmp = Array.new
   	@stores = Array.new
+  	stores = s.select {|store| store.city.downcase == current_user.city.downcase}
     fullZone = Array.new
   	Time.zone = current_user.timezone
   	date_and_time = Time.zone.now.strftime("%a %H:%M")
@@ -11,30 +12,20 @@ class HomeController < ApplicationController
   	@user_hour = date_and_time[4..5].to_i
   	@user_minute = date_and_time[7..9].to_i
   	query = params[:query]
+  	option = params[:option]
 
-  	if query != nil
-  		query = params[:query].strip
-	  	stores.each do |store|
-	  		if (store.zipcode == current_user.zip.to_i) && 
-	  			(/#query/ =~ store.name || /#query/ =~ store.type || /#query/ =~ store.description || /#query/ =~ store.tag)
-	  		   @stores.push(store)
-	  		elsif /#store.zipcode/ =~ current_user.zip.to_i && 
-	  			(/#query/ =~ store.name || /#query/ =~ store.type || /#query/ =~ store.description || /#query/ =~ store.tag)
-	  			tmp.push(store)
-	  		end
-	  		tmp.sort_by { |zip| hsh[:zipcode] }.reverse 
-	  		@stores.concat tmp
-	 	end
-	 else
-	 	stores.each do |store|
-	  		if (store.zipcode == current_user.zip.to_i)
-	  		   @stores.push(store)
-	  		elsif /#store.zipcode/ =~ current_user.zip.to_i
-	  			tmp.push(store)
-	  		end
-	  		tmp.sort_by { |zip| hsh[:zipcode] }.reverse 
-	  		@stores.concat tmp
-	 	end
+
+  	if option != nil && query.empty?
+  		if option == "Open Now"
+			  	stores.each do |store|
+			  		if check_time(store) == true 
+			  		 @stores.push(store)
+			  		end
+			  	end
+	    else
+	        @stores = stores.sort_by { |zip| hsh[:zipcode] }.reverse 
+	    end
+
 	 end
 
                                       

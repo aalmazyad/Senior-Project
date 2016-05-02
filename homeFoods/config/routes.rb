@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :comments, :only => [:create, :destroy]
   root "home#index"
   get 'query', to: 'home#index'
+  get 'option', to: 'home#index'
   post '/rate' => 'rater#create', :as => 'rate'
   resources :stores do 
   resources :products, shallow: true
