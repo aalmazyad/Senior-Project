@@ -105,6 +105,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:filename, :name, :contactMethod, :contactId, :foodType, :description, :fromDay, :toDay, :fromHour, :fromMinute, :toMinute, :fromZone, :toHour, :toZone, :tags, :address, :city, :state, :zipcode, :country,:user_id,products_attributes: [:filename,:name,:description,:quantity,:price])
+      params.require(:store).permit(:filename, :name, :contactMethod, :contactId, :foodType, :description, :fromDay, :toDay, :fromHour, :fromMinute, :toMinute, :fromZone, :toHour, :toZone, :tags, :address, :city, :state, :zipcode, :showAddress, :country,:user_id,products_attributes: [:filename,:name,:description,:quantity,:price])
     end
 end

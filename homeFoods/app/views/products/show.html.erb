@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <div class="thumbnail">
+                <div class="img-thumbnail">
                     <div id="inner-img">
-                     <%= image_tag(root_url + "/images/" + @product.filename, size: "1000x1000", alt: @product.filename) %>
+                     <%= image_tag(root_url + "/images/" + @product.filename, size: "500x500", alt: @product.filename) %>
                      </div>
                         <div class="caption-full">
                             <h4 class="pull-right">$<%= @product.price %></h4> 

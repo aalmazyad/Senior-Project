@@ -23,7 +23,7 @@ class HomeController < ApplicationController
 			  		end
 			  	end
 	    else
-	        @stores = stores.sort_by { |zip| hsh[:zipcode] }.reverse 
+	        @stores = stores.sort_by { |zip| zip[:zipcode] }.reverse 
 	    end
 
 	 end

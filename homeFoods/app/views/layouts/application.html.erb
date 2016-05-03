@@ -37,13 +37,13 @@
     <ul class="nav navbar-nav">
     <li><%= link_to '<span class="glyphicon glyphicon-home"></span> Home'.html_safe, root_path %></li>
      <li><%= link_to '<span class="glyphicon glyphicon-edit"></span> Manage My Store'.html_safe, stores_path %></li>
-    <li><%= form_tag(query_path, method: "get") do  %>
-      <%= text_field_tag(:query,nil, :size => 35)%>
-      <%= select_tag(:option, options_for_select([['Near By'], ['Open Now']], selected: :option )) %>
+    <%= form_tag(query_path, method: "get", id: "search-form", :class => "navbar-form navbar-left") do  %>
+          <%= select_tag(:option,options_for_select([['Near By'], ['Open Now']], selected: :option ),{class: "form-control"}) %>
+      <%= text_field_tag(:query,nil, :size => 30, :class => "form-control")%>
  <%=submit_tag('Search ', :class => "btn btn-default",:style => "width:70px")%></li>
       <% end %>
       <% i = 0 %>
-      <% while i < 7 %>
+      <% while i < 5 %>
      <li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
       <% i = i + 1 %>
       <% end %>

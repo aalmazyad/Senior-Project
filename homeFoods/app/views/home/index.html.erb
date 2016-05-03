@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Nearby</h1>
+                <h1 class="page-header">Sellers</h1>
             </div>
         </div>
     <% @stores.each do |store| %>
@@ -17,7 +17,6 @@
                 <h3><%=store.name%></h3>
                 <h4><%=store.foodType%></h4>
                 <p><%=store.description%></p>
-                <p class="pull-right" ><%=store.zipcode%></p> 
                 <% if current_user != store.user %>
                 <%= rating_for store, "overall", :enable_half => true,:half_show => true,:disable_after_rate => false %>
                 <% end %>

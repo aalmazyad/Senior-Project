@@ -67,9 +67,11 @@
     <%= f.text_field :zipcode,:class => "form-control",:style => "width: 400px;" %>
        <strong>Country Code </strong>
     <%= f.text_field :country,:class => "form-control",:style => "width: 400px;" %>
+        <strong>Show Address </strong>
+     <%= f.check_box :showAddress %>
   </div>
   <div class="actions">
-    <%= f.submit "Complete Action", :class => "btn btn-default",:style => "width: 200px;"%>
+    <%= f.submit "Submit", :class => "btn btn-default",:style => "width: 200px;"%>
   </div>
 </div> 
 <% end %>
