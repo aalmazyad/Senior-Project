@@ -19,23 +19,21 @@
     <div class="col-md-9">
                  <% if @store.products != nil %>
                 <div class="row">
-                <% @store.products.each do |product| %>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
+                <% @store.products.each_with_index do |product,index| %>
+                    <div class="col-sm-4">
+                        <div class="img-thumbnail">
                             <%= link_to image_tag(root_url + "/images/" + product.filename, size: "200x150", alt: product.filename), product %>
                             <div class="caption">
                                 <h4 class="pull-right">$ <%= product.price %></h4>
                                 <h4><%= product.name %></h4>
-                                <p>Quantity: <%= product.quantity %></p>
+                        
                                    <div id="star-img">
                                    <% if current_user != product.store.user %>
                                 <%= rating_for product, "overall", :enable_half => false,:disable_after_rate => false %>
                                 <% end %>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 <%end %>
                 </div>
