@@ -23,8 +23,10 @@
                            </div>
                 </div>
             		<% if @product.store.user_id != current_user.id %>
+                        <br> <br>
                         <%= render :partial => 'comments/form', :locals => { :comment => @new_comment } %>
                     <% end %>
+                    <br> <br>
 		                <%= render :partial => 'comments/comment', :collection => @comments, :as => :comment %>
                     
             </div>

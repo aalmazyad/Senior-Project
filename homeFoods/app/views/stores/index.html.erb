@@ -19,7 +19,7 @@
              <% if @mystore.products != nil %>
                 <div class="row">
                 <% @mystore.products.each do |product| %>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                  
                         <div class="img-thumbnail">
                         <div class="product-img">
                             <%= link_to image_tag(root_url + "/images/" + product.filename, size: "200x150", alt: product.filename), product %>
@@ -28,20 +28,15 @@
                                 <h4 class="pull-right">$ <%= product.price %></h4>
                                 <h4><%= product.name %></h4>
                                 <p>Quantity: <%= product.quantity %></p>
+                                 <p>Description: <%= product.description %></p>
                              <div id = "owner-icons">
                                 <%= link_to '', edit_product_path(product.id), :class => "glyphicon glyphicon-cog"%>
 
                                 <%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' },class: 'glyphicon glyphicon-trash' %>
                              </div>
-                              
-
-
-                         
-                            
-
                             </div>
                         </div>
-                    </div>
+             
                 <%end %>
                 </div>
             <% end %>
